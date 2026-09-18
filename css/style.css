@@ -436,23 +436,24 @@ html[data-theme="dark"] #theme-toggle {
   }
 
   #list-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .sort-control {
-    width: 100%;
+    width: auto;
   }
 
   .sort-control select {
-    flex: 1;
+    flex: none;
   }
 
   .inline-group {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   #add-category-btn {
-    width: 100%;
+    width: auto;
   }
 }
