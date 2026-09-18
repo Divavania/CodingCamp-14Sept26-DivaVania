@@ -52,8 +52,9 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 20px;
+  align-items: start;
 }
 
 #left-panel,
@@ -415,7 +416,7 @@ html[data-theme="dark"] #theme-toggle {
    RESPONSIVE / MOBILE
    ------------------------------------------------------------- */
 
-@media (max-width: 599px) {
+@media (max-width: 800px) {
   body {
     padding: 12px;
   }
