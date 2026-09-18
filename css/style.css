@@ -418,7 +418,7 @@ html[data-theme="dark"] #theme-toggle {
    RESPONSIVE / MOBILE
    ------------------------------------------------------------- */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   body {
     padding: 12px;
   }
