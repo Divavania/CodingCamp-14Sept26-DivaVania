@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense &amp; Budget Visualizer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ① Balance -->
+  <header id="balance-section">
+    <h1>Expense &amp; Budget Visualizer</h1>
+    <div id="balance-display">Total Spending: <span id="balance-amount">Rp 0</span></div>
+  </header>
+
+  <main id="app-grid">
+
+    <!-- ② Left / Top column -->
+    <section id="left-panel">
+
+      <!-- Add Expense Form -->
+      <section id="form-section">
+        <h2>Add Expense</h2>
+        <form id="expense-form" novalidate>
+
+          <div class="form-group">
+            <label for="item-name">Item Name</label>
+            <input type="text" id="item-name" placeholder="e.g. Lunch" required />
+            <span class="error-msg" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="item-amount">Amount (Rp)</label>
+            <input type="number" id="item-amount" placeholder="e.g. 25000" min="1" required />
+            <span class="error-msg" id="amount-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="item-category">Category</label>
+            <select id="item-category" required>
+              <option value="">-- Select Category --</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Fun">Fun</option>
+            </select>
+            <span class="error-msg" id="category-error"></span>
+          </div>
+
+          <!-- Optional: Add custom category -->
+          <div class="form-group custom-category-group">
+            <label for="new-category">New Category (optional)</label>
+            <div class="inline-group">
+              <input type="text" id="new-category" placeholder="e.g. Health" />
+              <button type="button" id="add-category-btn">Add</button>
+            </div>
+            <span class="error-msg" id="new-category-error"></span>
+          </div>
+
+          <button type="submit" id="submit-btn">Add Expense</button>
+        </form>
+      </section>
+
+      <!-- Sort Control + Transaction List -->
+      <section id="list-section">
+        <div id="list-header">
+          <h2>Transactions</h2>
+          <div class="sort-control">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select">
+              <option value="default">Date Added</option>
+              <option value="amount-asc">Amount ↑</option>
+              <option value="amount-desc">Amount ↓</option>
+              <option value="category-az">Category A–Z</option>
+            </select>
+          </div>
+        </div>
+        <ul id="transaction-list">
+          <!-- populated by JS -->
+        </ul>
+        <p id="empty-state">No transactions yet. Add one above!</p>
+      </section>
+
+    </section>
+
+    <!-- ③ Right / Bottom column -->
+    <section id="right-panel">
+      <section id="chart-section">
+        <h2>Spending by Category</h2>
+        <div id="chart-container">
+          <canvas id="expense-chart"></canvas>
+          <p id="chart-empty">Add transactions to see your spending chart.</p>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- Theme Toggle (fixed, bottom-right) -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙 Dark Mode</button>
+
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Application logic -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
